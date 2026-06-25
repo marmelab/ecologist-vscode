@@ -1,0 +1,89 @@
+{
+  "name": "ecologits-vscode",
+  "displayName": "EcoLogits — Claude Code Impact",
+  "description": "Shows the environmental impact of your Claude Code session in the VS Code status bar (CO₂, water, energy) via the public EcoLogits API.",
+  "version": "0.1.0",
+  "publisher": "ecologits",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marmelab/ecologits-vscode"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "claude",
+    "ai",
+    "carbon",
+    "environment",
+    "ecologits"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ecologits.cycleMode",
+        "title": "EcoLogits: Cycle display mode (last / workspace / all time)"
+      }
+    ],
+    "configuration": {
+      "title": "EcoLogits",
+      "properties": {
+        "ecologits.mode": {
+          "type": "string",
+          "default": "workspace",
+          "enum": [
+            "lastUse",
+            "workspace",
+            "allTime"
+          ],
+          "enumDescriptions": [
+            "Show only the last response's impact.",
+            "Show cumulative impact for all sessions in the current workspace.",
+            "Show cumulative impact across all projects and all time."
+          ],
+          "markdownDescription": "What to accumulate. Click the status bar item to cycle through modes."
+        },
+        "ecologits.model": {
+          "type": "string",
+          "default": "auto",
+          "markdownDescription": "Claude model to estimate. `auto` tracks the model the session is actually using (reads it from the transcript). You can pin a specific model instead, e.g. `claude-sonnet-4-6`. Valid values: `claude-opus-4-8`, `claude-opus-4-7`, `claude-opus-4-6`, `claude-opus-4-5`, `claude-sonnet-4-6`, `claude-sonnet-4-5`, `claude-haiku-4-5`."
+        },
+        "ecologits.zone": {
+          "type": "string",
+          "default": "WOR",
+          "markdownDescription": "Electricity-mix zone for the server location (ISO-3166 alpha-3). Defaults to `WOR` (world average). Examples: `FRA`, `USA`, `DEU`."
+        },
+        "ecologits.metrics": {
+          "type": "string",
+          "default": "gwp wcf energy",
+          "markdownDescription": "Space-separated list of metrics to display, in order. Available: `gwp` 🔥 (CO₂eq), `wcf` 💧 (water), `energy` ⚡ (kWh), `adpe` ⛏ (minerals), `pe` 🛢 (primary energy), `model` 🤖 (model name). Example: `model gwp wcf energy`."
+        },
+        "ecologits.api": {
+          "type": "string",
+          "default": "https://api.ecologits.ai/v1beta/estimations",
+          "markdownDescription": "EcoLogits estimations endpoint. Override if you self-host the API."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.9.2",
+    "typescript": "^5.3.0"
+  }
+}
