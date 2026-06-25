@@ -1,7 +1,8 @@
 # EcoLogist status bar extension for VS Code
 
-This extension is a VS code extension that shows the estimated environmental impact of your Claude Code session in VS code Status bar.
-Greenhouse gas emissions (CO₂), water consumption, and energy consumption are displayed in the status bar, based on the public EcoLogits API.
+Shows the estimated environmental impact of your Claude Code session in the VSCode status bar.
+
+This includes greenhouse gas emissions (CO₂), water consumption, and energy consumption are displayed in the status bar, based on the [EcoLogits](https://ecologits.ai/latest/) model and data. 
 
 ![Screenshot of the reported impact in the VS Code status bar](./assets/vscode-report.png)
 
