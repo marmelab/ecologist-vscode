@@ -13,3 +13,25 @@ The extension has three modes:
 - **All time**: shows cumulative impact across all projects and all time.
 
 It's an adaptation of the [ecologits-statusline](https://github.com/DuarteVi/ecologits-statusline) project.
+
+## How to build and run the extension
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Compile the extension:
+
+```bash
+npm run compile
+```
+
+3. Package the extension:
+
+```bash
+npm run package
+```
+
+It will generate a `.vsix` file in the root folder. You can install it in VS Code by opening the command palette (Ctrl+Shift+P), typing "Extensions: Install from VSIX...", and selecting the generated `.vsix` file.
