@@ -3,7 +3,7 @@
   "displayName": "EcoLogits — Claude Code Impact",
   "description": "Shows the environmental impact of your Claude Code session in the VS Code status bar (CO₂, water, energy) via the public EcoLogits API.",
   "version": "0.1.0",
-  "publisher": "ecologits",
+  "publisher": "Marmelab",
   "license": "MIT",
   "repository": {
     "type": "git",
